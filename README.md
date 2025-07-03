@@ -1,162 +1,243 @@
-# Memed.Fun
+# 🎭 Memed.fun
 
-Where memes meet money, and creators become legends. Memed.Fun is a platform that lets creators mint their own meme tokens, battle for supremacy, and reward their community through the power of Lens Protocol.
+**The Lens-Powered Meme Token Platform**
 
-![Meme Token Flow](https://github.com/user-attachments/assets/b9a58958-8647-4cb1-98fe-87af10c3aaeb)
+A revolutionary Web3 platform where memes become tradeable tokens with quadratic bonding curves, battle mechanics, and Lens Protocol social engagement rewards.
 
----
+[![Deploy](https://img.shields.io/badge/Deploy-Live-brightgreen)](https://memed.fun)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue)](https://www.typescriptlang.org/)
+[![React Router](https://img.shields.io/badge/React%20Router-7.5-orange)](https://reactrouter.com/)
+[![Lens Protocol](https://img.shields.io/badge/Lens-Protocol-green)](https://lens.xyz/)
 
-## What's the Hype?
+## 🚀 Features
 
-Imagine if your favorite meme creator could:
+### Core Platform
+- 🎯 **Meme Token Creation** with quadratic bonding curve pricing
+- ⚔️ **Battle System** with winner-takes-loser mechanics
+- 💰 **Dual Staking/Engagement Rewards** (350M tokens each)
+- 🔗 **Lens Protocol Integration** for social engagement
+- 📊 **Real-time Analytics** and leaderboards
+- 🛡️ **Anti-sniper Protection** with commit-reveal + Lens verification
+- 📱 **Mobile-first Design** with cross-chain readiness
 
-* Mint their own token
-* Battle other creators' tokens
-* Reward their community for engagement
-* Build a staking ecosystem
+### Technical Stack
+- 🚀 **React Router v7** with server-side rendering
+- ⚡️ **Vite** for lightning-fast development
+- 🔒 **TypeScript** with strict mode
+- 🎨 **Tailwind CSS** with custom design system
+- 🌐 **Web3 Integration** via ConnectKit + Wagmi
+- 📡 **Comprehensive API System** with caching and error handling
+- 🔄 **Optimistic Updates** for seamless UX
 
-That's Memed.Fun — a playground where social influence meets token economics.
+## 🏗 Architecture
 
-![Social Token Battles](https://github.com/user-attachments/assets/b4c0ecd6-29cf-42d7-b7e9-4b626fb22e4e)
+### Project Structure
 
----
-
-## Architecture
-
-<img width="2088" alt="image" src="https://github.com/user-attachments/assets/b1375b00-c38b-444e-be45-78d8699ff30d" />
-
-
-## How It Works
-
-### 1. Create Your Meme Token
-
-* Connect your Lens handle
-* Design your token (name, ticker, description, meme image)
-* Deploy ERC-20 contract
-* Profile becomes the token's identity
-* Start collecting followers and buyers
-
-### 2. Battle System
-
-* Challenge other creators via Lens thread
-* 24-hour battle window
-* Metrics: Follows, Likes, Mirrors, Comments, Stake Weight
-* Winner determined via smart contract snapshot
-* Winning meme gains heat score, token emission boost, visibility
-
-### 3. Staking & Rewards
-
-* Anyone can stake tokens behind a meme (showing belief)
-* Boost meme heat score based on staked amount
-* Stakers earn a share of:
-
-  * Meme's battle wins
-  * Engagement rewards
-* Rewards claimed via smart contract
-
-### 4. Engagement Rewards
-
-* Lens engagement tracked using Lens API and The Graph
-* Top engagers per meme get rewards
-* Engagement metrics weighted:
-
-  * Mirror > Comment > Like
-* Battle wins
-* Rewards claimed via merkle tree
-
-![Reward Flow](https://github.com/user-attachments/assets/f3af0107-9e95-4049-9479-869de8f513df)
-
----
-
-## Tech Stack
-
-* **Smart Contracts**: Solidity, OpenZeppelin
-* **Backend**: Node.js, Express.js
-* **Database**: MongoDB
-* **Social Graph**: Lens Protocol SDK, Lens API
-* **Indexing**: Node.js(cronjobs)
-* **Web3**: Wagmi, Family ConnectKit
-* **Storage**: IPFS
-* **Reward Distribution**: Merkle trees (via scripts)
-
----
-
-## Application Screenshots
-
-![App Screenshot 1](https://github.com/user-attachments/assets/70e7f606-d4a3-4d11-bcc5-b4eb6b249278)
-![App Screenshot 2](https://github.com/user-attachments/assets/f7c8e5c3-8bb6-4c47-971a-a0ecbf8c781e)
-
----
-
-## Roadmap Ahead
-
-<img width="2050" alt="image" src="https://github.com/user-attachments/assets/38f48580-a0b2-4104-a450-41cb6285ef2e" />
-
-
-## API Endpoints
-
-### Creator Endpoints
-
-```http
-POST /mintMemeCoins/:handle
-GET /getMintableCheck/:handle
+```
+memed/
+├── app/
+│   ├── components/           # Reusable UI components
+│   │   ├── WalletConnection.tsx
+│   │   └── Web3ErrorBoundary.tsx
+│   ├── hooks/               # Custom React hooks
+│   │   ├── useApi.ts        # Generic API hooks
+│   │   └── api/
+│   │       └── useMemedApi.ts # Domain-specific hooks
+│   ├── lib/
+│   │   └── api/             # API communication system
+│   │       ├── client.ts    # HTTP client with retries
+│   │       ├── config.ts    # Environment & constants
+│   │       └── loaders.ts   # React Router loaders
+│   ├── providers/
+│   │   └── Web3Provider.tsx # Web3 context provider
+│   ├── routes/              # Route components
+│   │   ├── home.tsx
+│   │   ├── $.tsx           # 404 page
+│   │   └── ...
+│   ├── welcome/             # Landing page components
+│   ├── root.tsx            # Root layout
+│   └── routes.ts           # Route configuration
+├── public/                  # Static assets
+└── package.json
 ```
 
-### Community Endpoints
+## 🛠 Development Setup
 
-```http
-GET /followers/:handle
-GET /engagement/:handle
-GET /claims/:userAddress
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+- Git
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-org/memed.git
+   cd memed
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Configuration:**
+   
+   Create a `.env` file in the project root:
+   
+   ```env
+   # API Configuration
+   VITE_API_BASE_URL=http://localhost:3001/api  # Development
+   # VITE_API_BASE_URL=https://api.memed.fun    # Production
+   VITE_API_TIMEOUT=10000
+   VITE_API_RETRIES=3
+   VITE_ENABLE_API_CACHE=true
+   
+   # Web3 Configuration
+   VITE_WALLETCONNECT_PROJECT_ID=your_project_id_here
+   VITE_ALCHEMY_API_KEY=your_alchemy_key_here
+   
+   # Lens Protocol Integration
+   VITE_LENS_API_URL=https://api-v2.lens.dev
+   
+   # IPFS for metadata storage
+   VITE_IPFS_GATEWAY=https://ipfs.io/ipfs/
+   ```
+
+4. **Start development server:**
+   ```bash
+   npm run dev
+   ```
+   
+   Your application will be available at `http://localhost:5173`.
+
+### Development Commands
+
+```bash
+# Development server with HMR
+npm run dev
+
+# Type checking
+npm run typecheck
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-### Token Endpoints
+## 🔌 API System
 
-```http
-GET /tokens
-GET /tokens/:tokenAddress
-GET /creators
+Comprehensive API communication system with TypeScript, caching, retries, and React Router integration.
+
+### Key Features
+- Type-safe API calls with automatic retries
+- Built-in caching and error handling
+- React hooks for components and React Router loaders
+- Optimistic updates and request deduplication
+
+### Quick Usage
+
+```tsx
+// Basic API hook
+const { data: tokens, loading, error } = useApi<MemeToken[]>('/tokens');
+
+// Domain-specific hooks
+const { data: tokens } = useMemeTokens();
+const { mutate: buyTokens } = useBuyTokens();
+
+// React Router loader
+export const loader = memeTokensLoader;
 ```
 
+### Available Hooks
+- **Tokens**: `useMemeTokens()`, `useCreateMemeToken()`, `useBuyTokens()`, `useSellTokens()`
+- **Battles**: `useTokenBattles()`, `useCreateBattle()`, `useStakeInBattle()`
+- **Staking**: `useStakingPositions()`, `useStakeTokens()`, `useClaimRewards()`
+- **Analytics**: `usePlatformStats()`, `useTokenAnalytics()`, `useLeaderboard()`
+
+## 🌐 Web3 Integration
+
+ConnectKit + Wagmi for wallet connection with error boundaries for robust Web3 interactions.
+
+## 🎯 Tokenomics
+
+### Core Mechanics
+- **Total Supply**: 1 billion tokens (fixed)
+- **Bonding Curve**: Quadratic pricing `Price = Base × (1 + k × Supply)²`
+- **Fair Launch**: 7-day protocol with early launch option
+- **Reserve Allocation**: 350M tokens for bonding curve
+- **Staking Rewards**: 350M tokens for staking incentives
+- **Zero Pre-distribution**: All tokens must be earned
+
+### Battle System
+- **Engagement Weight**: 60% Lens engagement + 40% staked value
+- **Winner Rewards**: Direct winner-takes-loser mechanism
+- **Anti-sniper Protection**: Commit-reveal + Lens verification
+- **Battle Duration**: Configurable (default 24-48 hours)
+
+## 🚀 Deployment
+
+### Production Build
+
+```bash
+# Create production build
+npm run build
+
+# Start production server
+npm start
+```
+
+### Environment Variables (Production)
+
+```env
+VITE_API_BASE_URL=https://api.memed.fun
+VITE_WALLETCONNECT_PROJECT_ID=your_production_project_id
+VITE_ALCHEMY_API_KEY=your_production_alchemy_key
+VITE_LENS_API_URL=https://api-v2.lens.dev
+VITE_IPFS_GATEWAY=https://ipfs.io/ipfs/
+```
+
+### Docker Deployment
+
+To build and run using Docker:
+
+```bash
+docker build -t my-app .
+
+# Run the container
+docker run -p 3000:3000 my-app
+```
+
+The containerized application can be deployed to any platform that supports Docker, including:
+
+- AWS ECS
+- Google Cloud Run
+- Azure Container Apps
+- Digital Ocean App Platform
+- Fly.io
+- Railway
+
+### DIY Deployment
+
+If you're familiar with deploying Node applications, the built-in app server is production-ready.
+
+Make sure to deploy the output of `npm run build`
+
+```
+├── package.json
+├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
+├── build/
+│   ├── client/    # Static assets
+│   └── server/    # Server-side code
+```
+
+## Styling
+
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+
 ---
 
-## Key Features
-
-* **Token Creation**: Mint your own meme token tied to your Lens profile
-* **Battle System**: Challenge and compete with other memes in social duels
-* **Staking**: Let your community stake on you and share the rewards
-* **Engagement Rewards**: Engage-to-earn with token incentives
-* **Merkle Airdrops**: Gas-efficient, fair, claimable rewards for all participants
-
----
-
-## Launch Strategy
-
-* Onboard top Lens creators
-* Weekly meme launch contests
-* Frame-based voting on Farcaster
-* Memed.Fun airdrop to Lens OGs
-* On-chain leaderboard and “Hall of Fame”
-
----
-
-## 📜 Deployed Contracts on Lens Chain
-
-| Contract          | Address                                      | Explorer Link                                                                                    |
-| ----------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Factory           | `0x4237901909F88519a4d3a5a00bADD1c010578d39` | [View on Explorer](https://explorer.lens.xyz/address/0x4237901909F88519a4d3a5a00bADD1c010578d39) |
-| MemedStaking      | `0x68a0ac1131a7B753b1476dcfe8E6bC36A65280B2` | [View on Explorer](https://explorer.lens.xyz/address/0x68a0ac1131a7B753b1476dcfe8E6bC36A65280B2) |
-| MemedBattle       | `0x150F06c1BE790629e5e54117F459DECbCD5e3844` | [View on Explorer](https://explorer.lens.xyz/address/0x150F06c1BE790629e5e54117F459DECbCD5e3844) |
-| MemedEngageToEarn | `0xa2C7ff62BFaBE5308cfDAE7c713347C73708AD45` | [View on Explorer](https://explorer.lens.xyz/address/0xa2C7ff62BFaBE5308cfDAE7c713347C73708AD45) |
-
----
-
-## 🙏 Acknowledgments
-
-* **Lens Protocol** for composable social graph
-* **The Family App** for UX inspiration
-* **The Web3 community** for vibing with memes + tokens
-
----
-
-Made with ❤️ by the Memed.Fun team
+Built with ❤️ using React Router.
