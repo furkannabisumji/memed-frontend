@@ -1,48 +1,22 @@
+import { getApiConfig } from './config';
+
 /**
- * Centralized HTTP API Client for Memed.fun Platform
- * 
- * This module provides a robust, production-ready HTTP client with:
- * 
- * 🔄 **Automatic Retry Logic**:
- *   - Exponential backoff for failed requests
- *   - Configurable retry attempts and delays
- *   - Smart retry logic (only retries appropriate errors)
- * 
- * ⏱️ **Timeout & Cancellation**:
- *   - Request timeout handling
- *   - AbortController support for request cancellation
- *   - Prevents memory leaks from abandoned requests
- * 
- * 🛡️ **Error Handling**:
- *   - Normalized error responses
- *   - HTTP status code handling
- *   - Network error detection and recovery
- * 
- * 🔧 **Configuration**:
- *   - Environment-aware base URL configuration
- *   - Customizable headers and request options
- *   - Development vs production optimizations
- * 
- * 📊 **Response Normalization**:
- *   - Consistent response format across all endpoints
- *   - Type-safe response handling with generics
- *   - Success/error state management
- * 
- * @example Basic Usage:
+ * HTTP API Client for Memed.fun Platform
+ *
+ * Provides a centralized, production-ready HTTP client with automatic retries,
+ * timeout handling, error normalization, and environment-aware configuration.
+ *
+ * Features:
+ * - 🔄 Exponential backoff retry logic
+ * - ⏱️ Request timeout and cancellation
+ * - 🛡️ Normalized error handling
+ * - 🔧 Environment-based configuration
+ * - 📊 Type-safe response handling
+ *
+ * @example
  * ```typescript
- * const response = await apiClient.get<Token[]>('/tokens');
- * console.log(response.data); // Type-safe token array
- * ```
- * 
- * @example With Custom Config:
- * ```typescript
- * const response = await apiClient.post<CreateTokenResponse>('/tokens/create', {
- *   name: 'MyToken',
- *   symbol: 'MTK'
- * }, {
- *   timeout: 15000,
- *   retries: 5
- * });
+ * const tokens = await apiClient.get<Token[]>('/tokens');
+ * const newToken = await apiClient.post('/tokens', { name: 'MyToken' });
  * ```
  */
 
@@ -66,29 +40,26 @@ export interface RequestConfig extends RequestInit {
   retryDelay?: number;
 }
 
+/**
+ * HTTP API Client with retry logic, timeout handling, and error normalization
+ */
 class ApiClient {
-  private baseURL: string;
-  private defaultTimeout: number = 10000; // 10 seconds
-  private defaultRetries: number = 3;
-  private defaultRetryDelay: number = 1000; // 1 second
+  private readonly baseURL: string;
+  private readonly defaultTimeout: number;
+  private readonly defaultRetries: number;
+  private readonly defaultRetryDelay: number = 1000;
 
   constructor(baseURL?: string) {
-    this.baseURL = baseURL || this.getBaseURL();
+    const config = getApiConfig();
+    
+    this.baseURL = baseURL || config.baseUrl;
+    this.defaultTimeout = config.timeout;
+    this.defaultRetries = config.retries;
   }
 
-  private getBaseURL(): string {
-    // Environment-specific API base URLs
-    if (import.meta.env.VITE_API_BASE_URL) {
-      return import.meta.env.VITE_API_BASE_URL;
-    }
-    
-    // Default based on environment
-    if (import.meta.env.DEV) {
-      return 'http://localhost:3001/api'; // Development API
-    }
-    
-    return 'https://api.memed.fun'; // Production API
-  }
+  // ==========================================
+  // Private Utility Methods
+  // ==========================================
 
   private async delay(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -99,7 +70,6 @@ class ApiClient {
     config: RequestConfig
   ): Promise<Response> {
     const { timeout = this.defaultTimeout, ...fetchConfig } = config;
-    
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), timeout);
     
@@ -115,6 +85,10 @@ class ApiClient {
       throw error;
     }
   }
+
+  // ==========================================
+  // Core Request Method with Retry Logic
+  // ==========================================
 
   private async request<T>(
     endpoint: string,
@@ -190,7 +164,10 @@ class ApiClient {
     throw lastError!;
   }
 
-  // HTTP Methods
+  // ==========================================
+  // Public HTTP Methods
+  // ==========================================
+
   async get<T>(endpoint: string, config?: RequestConfig): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, { ...config, method: 'GET' });
   }

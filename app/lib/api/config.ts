@@ -1,38 +1,38 @@
 /**
  * API Configuration and Environment Management for Memed.fun
- * 
+ *
  * This module provides centralized configuration management for the entire API system:
- * 
+ *
  * 🌍 **Environment Variables**:
  *   - Vite-compatible environment variable handling
  *   - Development vs production configuration
  *   - Validation and fallback values
  *   - Type-safe environment access
- * 
+ *
  * 🔗 **API Endpoints**:
  *   - Centralized endpoint definitions
  *   - RESTful route organization
  *   - Version management and consistency
  *   - Easy endpoint updates and maintenance
- * 
+ *
  * ⚙️ **Configuration Objects**:
  *   - HTTP client settings (timeout, retries)
  *   - Cache configuration and TTL values
  *   - Feature flags and toggles
  *   - External service URLs (Lens, IPFS)
- * 
+ *
  * 🛡️ **Error Handling**:
  *   - HTTP status code definitions
  *   - API error code constants
  *   - Standardized error messages
  *   - Retry logic configuration
- * 
+ *
  * 🔧 **Utility Functions**:
  *   - Endpoint URL building
  *   - Environment validation
  *   - Configuration parsing
  *   - Development helpers
- * 
+ *
  * @example Environment Setup:
  * ```bash
  * # .env.local
@@ -40,29 +40,19 @@
  * VITE_API_TIMEOUT=10000
  * VITE_ENABLE_API_CACHE=true
  * ```
- * 
+ *
  * @example Usage:
  * ```typescript
  * import { API_ENDPOINTS, getApiConfig } from './config';
- * 
+ *
  * const config = getApiConfig();
  * const tokenUrl = API_ENDPOINTS.TOKENS.LIST;
  * ```
  */
 
-// Extend the existing env.d.ts with API-related variables
-declare global {
-  interface ImportMetaEnv {
-    readonly VITE_API_BASE_URL?: string;
-    readonly VITE_REACT_APP_BACKEND?: string;
-    readonly VITE_API_TIMEOUT?: string;
-    readonly VITE_API_RETRIES?: string;
-    readonly VITE_ENABLE_API_CACHE?: string;
-    readonly VITE_LENS_API_URL?: string;
-    readonly VITE_IPFS_GATEWAY?: string;
-    readonly VITE_REACT_APP_IPFS_GATEWAY?: string;
-  }
-}
+import { env } from "@/utils/env";
+
+// Environment variable types are defined in app/types/env.d.ts
 
 export interface ApiConfig {
   baseUrl: string;
@@ -74,31 +64,19 @@ export interface ApiConfig {
 }
 
 /**
- * Get API configuration from environment variables
+ * Get API configuration from validated environment variables
  */
 export function getApiConfig(): ApiConfig {
   const config: ApiConfig = {
-    baseUrl:
-      import.meta.env.VITE_API_BASE_URL ||
-      import.meta.env.VITE_REACT_APP_BACKEND ||
-      (import.meta.env.DEV
-        ? "http://localhost:3001/api"
-        : "https://api.memed.fun"),
-    timeout: parseInt(import.meta.env.VITE_API_TIMEOUT || "10000", 10),
-    retries: parseInt(import.meta.env.VITE_API_RETRIES || "3", 10),
-    enableCache: import.meta.env.VITE_ENABLE_API_CACHE !== "false",
-    lensApiUrl: import.meta.env.VITE_LENS_API_URL || "https://api-v2.lens.dev",
-    ipfsGateway: 
-      import.meta.env.VITE_IPFS_GATEWAY ||
-      import.meta.env.VITE_REACT_APP_IPFS_GATEWAY ||
-      "https://ipfs.io/ipfs/",
+    baseUrl: env.apiBaseUrl,
+    timeout: env.apiTimeout,
+    retries: env.apiRetries,
+    enableCache: env.enableApiCache,
+    lensApiUrl: env.lensApiUrl,
+    ipfsGateway: env.ipfsGateway,
   };
 
-  // Validate required configuration
-  if (!config.baseUrl) {
-    throw new Error("API base URL is required");
-  }
-
+  // Additional validation
   if (config.timeout < 1000) {
     console.warn("API timeout is very low, consider increasing it");
   }
