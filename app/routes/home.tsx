@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
-import { WalletConnection } from "../components/shared/WalletConnection";
-import { Web3ErrorBoundary } from "../components/shared/Web3ErrorBoundary";
+import { Header } from "@/components/home/Header";
+import { MobileMenu } from "@/components/home/MobileMenu";
+import { HeroSection } from "@/components/home/HeroSection";
+import { StatsSection } from "@/components/home/StatsSection";
+import { TrendingMemes } from "@/components/home/TrendingMemes";
+import { CTASection } from "@/components/home/CTASection";
+import { Footer } from "@/components/home/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -31,14 +36,28 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-gray-50 py-4 sm:py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
-        <Web3ErrorBoundary>
-          <WalletConnection />
-        </Web3ErrorBoundary>
-        <Welcome />
-      </div>
+    <div className="min-h-screen bg-black">
+      <Header 
+        onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        isMenuOpen={isMobileMenuOpen}
+      />
+      
+      <MobileMenu 
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
+      
+      <main>
+        <HeroSection />
+        <StatsSection />
+        <TrendingMemes />
+        <CTASection />
+      </main>
+      
+      <Footer />
     </div>
   );
 }
