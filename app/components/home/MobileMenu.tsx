@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { X, MessageCircle, Twitter } from 'lucide-react';
 import { ClientConnectButton } from '../shared/ClientConnectButton';
+import logo from "@/assets/images/logo.png";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -32,9 +33,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-4 border-b border-green-500/20">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                <span className="text-black font-bold">M</span>
-              </div>
+              <img
+                  src={logo}
+                  alt={"Memed.fun"}
+                  className="w-[35px] object-cover"
+              />
               <span className="text-white font-bold text-lg">Memed</span>
             </div>
             <button

@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { ArrowRight } from 'lucide-react';
+import {MoveUpRight} from 'lucide-react';
 import heroImage from "@/assets/images/heroChecks.svg"
 
 export function HeroSection() {
@@ -10,7 +10,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-transparent to-transparent " />
 
         <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl  text-white mb-6 leading-tight">
             The Lens-powered meme
             <br />
             token revolution.
@@ -23,10 +23,10 @@ export function HeroSection() {
 
           <Link
               to="/app"
-              className="inline-flex items-center px-8 py-4 bg-green-500 text-black font-bold rounded-full hover:bg-green-400 transition-colors group"
+              className="inline-flex items-center px-8 py-4 border border-green-700 bg-black text-white font-bold rounded-full hover:bg-green-700 transition-colors group"
           >
             Launch App
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <MoveUpRight size={15} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
