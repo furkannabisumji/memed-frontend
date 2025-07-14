@@ -15,7 +15,8 @@ export function Footer() {
       <div className=" mx-auto px-20 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col items-center md:items-start">
-            <Link to="/" className="flex items-center space-x-2 mb-4"><img
+            <Link to="/" className="flex items-center space-x-2 mb-4">
+              <img
                 src={logo}
                 alt={"Memed.fun"}
                 className="w-[35px] h-35px] object-cover"
