@@ -28,7 +28,7 @@ export function Intro() {
               you earn — your viral memes turn into real rewards!
             </p>
             <Link
-              to="/app"
+              to="/app/launch"
               className="flex items-center gap-3 w-fit rounded-full font-semibold text-sm bg-gradient-to-t  from-primary-900 to-black border border-primary-700  hover:shadow-[inset_0_0_20px_rgba(34,197,94,0.2),inset_0_0_40px_rgba(0,0,0,0.3)] px-3 py-2.5 transition-all duration-300"
             >
               Create Now

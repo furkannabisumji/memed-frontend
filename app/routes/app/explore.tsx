@@ -190,15 +190,15 @@ export default function Explore() {
       <div className=" px-2 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8 space-y-4 sm:space-y-6 lg:space-y-8 w-full ">
         <Intro />
 
-        <div className="overflow-x-auto scrollbar-hide pb-4 mb-4">
+        <div className="overflow-x-auto w-full scrollbar-hide pb-4 mb-4">
           <div className="flex gap-4  w-full overflow-x-auto">
-            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
-            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
-            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
-            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
-            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
-            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
-            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
+            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
+            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
+            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
+            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
+            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
+            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
+            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
           </div>
         </div>
         <div className="flex flex-col xl:flex-row gap-4 md:gap-6 xl:gap-8 w-full">

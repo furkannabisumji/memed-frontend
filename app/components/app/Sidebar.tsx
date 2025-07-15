@@ -74,7 +74,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       <aside
         className={`
         fixed lg:relative
-        w-64 bg-black border-r border-gray-800 h-full 
+        w-64  lg:w-[18%] bg-black border-r border-gray-800 h-full 
         flex flex-col
         transform transition-transform duration-300 ease-in-out
         z-50
@@ -84,7 +84,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         <nav className="py-6 flex-1 flex flex-col ">
           <div className="px-4 mb-8 h-[70%] ">
             <div className="flex flex-col items-center gap-4 mb-10 ">
-              <Link to="/app" className="flex items-center gap-3 w-full mb-3">
+              <Link to="/" className="flex items-center gap-3 w-full mb-3">
                 <img
                   src={logo}
                   alt={"Memed.fun"}
@@ -92,13 +92,16 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 />
                 <span className="text-white text-xl font-semibold">Memed</span>
               </Link>
-              <button className="bg-green-500 w-full cursor-pointer text-xs text-nowrap justify-between text-black px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-green-600 transition-all duration-300 shadow-[0_0_40px_rgba(34,197,94,0.8)] hover:shadow-[0_0_60px_rgba(34,197,94,1)]">
+              <Link
+                to="/app/launch"
+                className="bg-green-500 w-full cursor-pointer text-xs text-nowrap justify-between text-black px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-green-600 transition-all duration-300 shadow-[0_0_40px_rgba(34,197,94,0.8)] hover:shadow-[0_0_60px_rgba(34,197,94,1)]"
+              >
                 <Rocket />
                 Launch Token
                 <div className="bg-black rounded-md flex items-center justify-center text-green-500 p-1">
                   <ArrowRight />
                 </div>
-              </button>
+              </Link>
             </div>
             <h2 className="text-gray-500 text-xs font-medium  tracking-wider mb-4">
               Navigation

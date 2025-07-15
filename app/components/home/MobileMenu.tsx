@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
-import { X, MessageCircle, Twitter } from 'lucide-react';
-import { ClientConnectButton } from '../shared/ClientConnectButton';
+import { Link } from "react-router";
+import { X, MessageCircle, Twitter } from "lucide-react";
+import { ClientConnectButton } from "../shared/ClientConnectButton";
 import logo from "@/assets/images/logo.png";
 
 interface MobileMenuProps {
@@ -10,43 +10,43 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const navItems = [
-    { label: 'About', href: '/about' },
-    { label: 'Explore', href: '/explore' },
-    { label: 'Contact', href: '/contact' },
-    { label: 'Launch App', href: '/app' },
+    { label: "About", href: "/about" },
+    { label: "Explore", href: "/explore" },
+    { label: "Contact", href: "/contact" },
+    { label: "Launch App", href: "/app" },
   ];
 
   return (
     <>
       <div
         className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300 ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
       />
-      
+
       <div
         className={`fixed top-0 left-0 h-full w-72 bg-black border-r border-green-500/20 z-50 transform transition-transform duration-300 ease-out md:hidden ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-4 border-b border-green-500/20">
             <div className="flex items-center space-x-2">
               <img
-                  src={logo}
-                  alt={"Memed.fun"}
-                  className="w-[35px] object-cover"
+                src={logo}
+                alt={"Memed.fun"}
+                className="w-[35px] object-cover"
               />
               <span className="text-white font-bold text-lg">Memed</span>
             </div>
-            <button
-              onClick={onClose}
-              className="p-2 text-gray-400 hover:text-white transition-colors"
-              aria-label="Close menu"
-            >
-              <X size={24} />
-            </button>
+            {/*<button*/}
+            {/*  onClick={onClose}*/}
+            {/*  className="p-2 text-gray-400 hover:text-white transition-colors"*/}
+            {/*  aria-label="Close menu"*/}
+            {/*>*/}
+            {/*  <X size={24} />*/}
+            {/*</button>*/}
           </div>
 
           <nav className="flex-1 px-4 py-6">
@@ -62,7 +62,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </Link>
               ))}
             </div>
-            
+
             <div className="mt-8">
               <ClientConnectButton />
             </div>
