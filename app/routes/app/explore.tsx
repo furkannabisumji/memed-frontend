@@ -192,13 +192,13 @@ export default function Explore() {
 
         <div className="overflow-x-auto scrollbar-hide pb-4 mb-4">
           <div className="flex gap-4  w-full overflow-x-auto">
-            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
-            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
-            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
-            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
-            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
-            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
-            <HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />
+            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
+            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
+            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
+            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
+            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
+            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
+            {/*<HorizontalCard name="Glimp" creator="0Xbruh" price="$21k" />*/}
           </div>
         </div>
         <div className="flex flex-col xl:flex-row gap-4 md:gap-6 xl:gap-8 w-full">
