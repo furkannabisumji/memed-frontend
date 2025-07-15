@@ -1,13 +1,13 @@
-import { Link } from 'react-router';
-import { MessageCircle, Twitter } from 'lucide-react';
+import { Link } from "react-router";
+import { MessageCircle, Twitter } from "lucide-react";
 import logo from "@/assets/images/logo.png";
 
 export function Footer() {
   const navigation = [
-    { label: 'About', href: '/about' },
-    { label: 'Explore', href: '/explore' },
-    { label: 'Contact', href: '/contact' },
-    { label: 'Launch App', href: '/app' },
+    { label: "About", href: "/about" },
+    { label: "Explore", href: "/explore" },
+    { label: "Contact", href: "/contact" },
+    { label: "Launch App", href: "/app" },
   ];
 
   return (
@@ -20,7 +20,7 @@ export function Footer() {
                 src={logo}
                 alt={"Memed.fun"}
                 className="w-[35px] h-35px] object-cover"
-            />
+              />
               <span className="text-white font-bold text-lg">Memed</span>
             </Link>
           </div>
@@ -66,7 +66,6 @@ export function Footer() {
               © 2024 Memed.fun. All rights reserved.
             </p>
           </div>
-
         </div>
       </div>
     </footer>
