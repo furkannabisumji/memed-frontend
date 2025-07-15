@@ -13,13 +13,13 @@ export default function App() {
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
         />
-        <main className="h-full bg-[#131414] w-full px-4 md:px-10 py-3">
+        <main className="h-full bg-[#131414] w-full px-4  flex flex-1 flex-col py-3">
           <div className="h-[5%]">
             <AppHeader
               onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             />
           </div>
-          <div className="h-[95%] overflow-y-auto">
+          <div className="h-[95%] overflow-y-auto    ">
             <Outlet />
           </div>
         </main>
