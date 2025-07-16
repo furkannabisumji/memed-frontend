@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import ConnectProfile from "../../components/app/launch/ConnectProfile";
 import CreateMemeForm from "@/components/app/launch/CreateMemeForm";
 import TokenSettingForm from "../../components/app/launch/TokenSettingForm";
+import { Share2Icon } from "lucide-react";
 
 export default function LaunchPage() {
   // Dummy data for selectedAccount and accounts
@@ -146,9 +147,14 @@ export default function LaunchPage() {
                 <p className="mb-4 text-white">
                   ${memeSymbol} • 1,000,000,000 supply
                 </p>
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center  gap-4">
                   <Link to={`/explore`}>
-                    <button className="px-4 py-2 gap-2 border-2 border-neutral-800 rounded-md text-white  hover:shadow-2xl cursor-pointer">
+                    <button className="px-4  gap-2 bg-green-700   border-green-700 text-black  items-center flex  rounded-md h-10  hover:shadow-2xl cursor-pointer">
+                      <Share2Icon size={12} /> Share
+                    </button>
+                  </Link>{" "}
+                  <Link to={`/explore`}>
+                    <button className="px-4  gap-2 border-2 border-neutral-800 rounded-md h-10 text-white  hover:shadow-2xl cursor-pointer">
                       View on Explorer
                     </button>
                   </Link>

@@ -216,14 +216,7 @@ export default function TokenSettingForm({
             className="w-full sm:w-auto bg-green-600 p-2  text-white hover:bg-primary-dark cursor-pointer px-8 border border-neutral-800  hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             disabled={isMinting || !hasReviewed || !memeTitle || !memeSymbol}
           >
-            {isMinting ? (
-              <>
-                <span className="w-5 h-5 mr-2 border-4 border-dashed rounded-full animate-spin border-white"></span>
-                Launching...
-              </>
-            ) : (
-              <>🚀 Launch Token</>
-            )}
+            {isMinting ? <>Launching...</> : <>🚀 Launch Token</>}
           </button>
         </div>
       </div>
