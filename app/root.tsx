@@ -10,6 +10,7 @@ import {
 import type { Route } from "./+types/root";
 import { Web3Provider } from "./providers/Web3Provider";
 import "./app.css";
+import { Toaster, toast } from "sonner";
 
 export const links: Route.LinksFunction = () => [];
 
@@ -35,6 +36,7 @@ export default function App() {
   return (
     <Web3Provider>
       <Outlet />
+      <Toaster />
     </Web3Provider>
   );
 }

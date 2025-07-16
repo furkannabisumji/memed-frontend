@@ -94,7 +94,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               </Link>
               <Link
                 to="/app/launch"
-                className="bg-green-500 w-full cursor-pointer text-xs text-nowrap justify-between text-black px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-green-600 transition-all duration-300 shadow-[0_0_40px_rgba(34,197,94,0.8)] hover:shadow-[0_0_60px_rgba(34,197,94,1)]"
+                className="bg-green-500 w-full cursor-pointer text-sm text-nowrap justify-between text-black px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-green-600 transition-all duration-300 shadow-[0_0_40px_rgba(34,197,94,0.8)] hover:shadow-[0_0_60px_rgba(34,197,94,1)]"
               >
                 <Rocket />
                 Launch Token

@@ -24,7 +24,7 @@ export function HorizontalCard({ name, creator, price }: HorizontalCardProps) {
             <span className="text-neutral-500 sm:hidden">by</span>
             <span className="text-white truncate">{creator}</span>
           </div>
-          <div className="text-primary-500 text-xs font-semibold whitespace-nowrap pl-3">
+          <div className="text-primary text-xs font-semibold whitespace-nowrap pl-3">
             {price}
           </div>
         </div>
