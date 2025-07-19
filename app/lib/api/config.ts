@@ -49,7 +49,6 @@
  * const tokenUrl = API_ENDPOINTS.TOKENS.LIST;
  * ```
  */
-
 import { env } from "@/utils/env";
 
 // Environment variable types are defined in app/types/env.d.ts
@@ -90,7 +89,7 @@ export function getApiConfig(): ApiConfig {
 export const API_ENDPOINTS = {
   // Tokens
   TOKENS: "/tokens",
-  TOKEN_DETAIL: "/tokens/:id",
+  TOKEN_DETAIL: "/meme/:memeId",
   TOKEN_CREATE: "/tokens/create",
   TOKEN_BUY: "/tokens/buy",
   TOKEN_SELL: "/tokens/sell",
@@ -206,7 +205,7 @@ export const CACHE_CONFIG = {
 export function buildEndpoint(
   endpoint: string,
   params: Record<string, string | number> = {},
-  query: Record<string, string | number | boolean> = {}
+  query: Record<string, string | number | boolean> = {},
 ): string {
   let url = endpoint;
 

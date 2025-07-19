@@ -27,11 +27,11 @@ const navItems: NavItem[] = [
     path: "/app/explore",
     icon: <House className="w-5 h-5" />,
   },
-  {
-    name: "Staking",
-    path: "/app/staking",
-    icon: <Coins className="w-5 h-5" />,
-  },
+  // {
+  //   name: "Staking",
+  //   path: "/app/staking",
+  //   icon: <Coins className="w-5 h-5" />,
+  // },
   {
     name: "Battles",
     path: "/app/battles",

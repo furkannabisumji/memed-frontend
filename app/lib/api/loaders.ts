@@ -1,39 +1,39 @@
 /**
  * React Router Loaders with API Integration for Memed.fun
- * 
+ *
  * This module provides server-side data fetching utilities that integrate seamlessly
  * with React Router v7 and the Memed.fun API system:
- * 
+ *
  * 🚀 **Server-Side Rendering (SSR)**:
  *   - Pre-fetch data before route rendering
  *   - Improved initial page load performance
  *   - SEO-friendly data loading
  *   - Reduced client-side loading states
- * 
+ *
  * 🔄 **Generic Loader Factory**:
  *   - Reusable loader creation utilities
  *   - Type-safe data fetching with generics
  *   - Automatic error handling and fallbacks
  *   - URL parameter substitution
- * 
+ *
  * 📊 **Parallel Data Loading**:
  *   - Load multiple API endpoints simultaneously
  *   - Optimized performance with Promise.allSettled
  *   - Partial success handling (some requests can fail)
  *   - Structured response format
- * 
+ *
  * 🛡️ **Error Handling**:
  *   - Graceful error recovery
  *   - Fallback data support
  *   - Consistent error response format
  *   - Development vs production error details
- * 
+ *
  * 🔧 **Advanced Features**:
  *   - Data transformation before rendering
  *   - Cache integration for repeated requests
  *   - URL parameter extraction and substitution
  *   - Request context passing
- * 
+ *
  * @example Basic Loader:
  * ```typescript
  * export const tokenLoader = createApiLoader<Token[]>('/tokens', {
@@ -41,7 +41,7 @@
  *   transform: (data) => data.sort((a, b) => b.createdAt - a.createdAt)
  * });
  * ```
- * 
+ *
  * @example Route Integration:
  * ```typescript
  * // In routes.ts
@@ -49,7 +49,7 @@
  *   loader: createApiLoader<Token>('/tokens/:id')
  * });
  * ```
- * 
+ *
  * @example Parallel Loading:
  * ```typescript
  * export const dashboardLoader = createParallelLoader({
@@ -60,8 +60,9 @@
  * ```
  */
 
-import type { LoaderFunctionArgs } from 'react-router';
-import { apiClient, type ApiResponse } from './client';
+import type { LoaderFunctionArgs } from "react-router";
+import { apiClient, type ApiResponse } from "./client";
+import { API_ENDPOINTS } from "./config";
 
 export interface LoaderData<T = any> {
   data: T | null;
@@ -72,38 +73,39 @@ export interface LoaderData<T = any> {
 /**
  * Generic loader wrapper that handles API calls and error states
  */
-export async function createApiLoader<T>(
+export function createApiLoader<T>(
   endpoint: string,
   options: {
     transform?: (data: any) => T;
     fallback?: T;
     cache?: boolean;
     cacheKey?: string;
-  } = {}
+  } = {},
 ) {
+  console.log(`Creating API loader for endpoint: ${endpoint}`, options);
   return async ({ request, params }: LoaderFunctionArgs): Promise<Response> => {
     try {
       // Replace URL parameters in endpoint
       let finalEndpoint = endpoint;
       if (params) {
         Object.entries(params).forEach(([key, value]) => {
-          finalEndpoint = finalEndpoint.replace(`:${key}`, String(value || ''));
+          finalEndpoint = finalEndpoint.replace(`:${key}`, String(value || ""));
         });
       }
 
       // Extract query parameters from request URL
       const url = new URL(request.url);
       const searchParams = url.searchParams;
-      
+
       // Add query parameters to endpoint if any
       if (searchParams.toString()) {
         finalEndpoint += `?${searchParams.toString()}`;
       }
 
       const response = await apiClient.get<T>(finalEndpoint);
-      
+
       let finalData = response.data;
-      
+
       // Apply transform if provided
       if (options.transform) {
         finalData = options.transform(response.data);
@@ -114,10 +116,9 @@ export async function createApiLoader<T>(
         error: null,
         success: response.success,
       } satisfies LoaderData<T>);
-
     } catch (error) {
       console.error(`Loader error for ${endpoint}:`, error);
-      
+
       // Return fallback data if provided
       if (options.fallback !== undefined) {
         return Response.json({
@@ -139,9 +140,10 @@ export async function createApiLoader<T>(
 /**
  * Parallel loader for multiple API calls
  */
-export async function createParallelLoader<T extends Record<string, any>>(
-  loaders: Record<keyof T, string | (() => Promise<any>)>
+export function createParallelLoader<T extends Record<string, any>>(
+  loaders: Record<keyof T, string | (() => Promise<any>)>,
 ) {
+  console.log("Creating parallel loader with:", loaders);
   return async ({ request, params }: LoaderFunctionArgs): Promise<Response> => {
     const results: Partial<T> = {};
     const errors: Record<string, string> = {};
@@ -151,35 +153,35 @@ export async function createParallelLoader<T extends Record<string, any>>(
       Object.entries(loaders).map(async ([key, loader]) => {
         try {
           let data;
-          
-          if (typeof loader === 'string') {
+
+          if (typeof loader === "string") {
             // It's an endpoint string
             let endpoint = loader;
             if (params) {
               Object.entries(params).forEach(([paramKey, value]) => {
-                endpoint = endpoint.replace(`:${paramKey}`, value || '');
+                endpoint = endpoint.replace(`:${paramKey}`, value || "");
               });
             }
-            
+
             const url = new URL(request.url);
             const searchParams = url.searchParams;
             if (searchParams.toString()) {
               endpoint += `?${searchParams.toString()}`;
             }
-            
+
             const response = await apiClient.get(endpoint);
             data = response.data;
           } else {
             // It's a function
             data = await loader();
           }
-          
+
           results[key as keyof T] = data;
         } catch (error) {
           console.error(`Parallel loader error for ${key}:`, error);
           errors[key] = (error as Error).message;
         }
-      })
+      }),
     );
 
     return Response.json({
@@ -189,48 +191,45 @@ export async function createParallelLoader<T extends Record<string, any>>(
     });
   };
 }
-
+/*
+These loaders are used if you want to fetch only from one endpoint
+ */
 // Specific loaders for Memed.fun routes
-export const memeTokensLoader = createApiLoader('/tokens', {
+export const memeTokensLoader = createApiLoader("/tokens", {
   fallback: [],
   transform: (data) => data || [],
 });
 
-export const memeTokenLoader = createApiLoader<any>('/tokens/:tokenId');
+export const memeTokenLoader = createApiLoader<any>("/tokens/:tokenId");
 
-export const tokenBattlesLoader = createApiLoader('/battles', {
+export const tokenBattlesLoader = createApiLoader("/battles", {
   fallback: [],
   transform: (data) => data || [],
 });
 
-export const tokenBattleLoader = createApiLoader<any>('/battles/:battleId');
+export const tokenBattleLoader = createApiLoader<any>("/battles/:battleId");
 
-export const userProfileLoader = createApiLoader<any>('/users/:address');
+export const userProfileLoader = createApiLoader<any>("/users/:address");
 
-export const platformStatsLoader = createApiLoader('/analytics/platform', {
+export const platformStatsLoader = createApiLoader("/analytics/platform", {
   fallback: {
     totalTokens: 0,
-    totalVolume: '0',
+    totalVolume: "0",
     totalUsers: 0,
     activeBattles: 0,
-    totalStaked: '0',
+    totalStaked: "0",
   },
 });
 
-// Combined loader for dashboard/home page
-export const dashboardLoader = createParallelLoader({
-  tokens: '/tokens?limit=10',
-  battles: '/battles?status=active&limit=5',
-  stats: '/analytics/platform',
-  leaderboard: '/leaderboard/creators?limit=5',
-});
-
+/*
+These loaders are used if you want to fetch  from multiple endpoint
+ */
 // Token detail page loader (combines multiple related data)
 export const tokenDetailLoader = createParallelLoader({
-  token: '/tokens/:tokenId',
-  bondingCurve: '/tokens/:tokenId/bonding-curve',
-  analytics: '/analytics/token/:tokenId?timeframe=24h',
-  battles: '/battles?tokenId=:tokenId&limit=5',
+  token: API_ENDPOINTS.TOKEN_DETAIL,
+  bondingCurve: API_ENDPOINTS.BONDING_CURVE,
+  analytics: `${API_ENDPOINTS.TOKEN_ANALYTICS}?timeframe=24h`,
+  battles: `${API_ENDPOINTS.BATTLES}?tokenId=:tokenId&limit=5`,
 });
 
 /**
@@ -247,17 +246,17 @@ export function useLoaderData<T>(): LoaderData<T> {
  * Error boundary for loader errors
  */
 export function handleLoaderError(error: any): Response {
-  console.error('Loader error:', error);
-  
+  console.error("Loader error:", error);
+
   if (error.status === 404) {
-    throw new Response('Not Found', { status: 404 });
+    throw new Response("Not Found", { status: 404 });
   }
-  
+
   if (error.status >= 400 && error.status < 500) {
-    throw new Response('Bad Request', { status: error.status });
+    throw new Response("Bad Request", { status: error.status });
   }
-  
-  throw new Response('Internal Server Error', { status: 500 });
+
+  throw new Response("Internal Server Error", { status: 500 });
 }
 
 /**
@@ -265,7 +264,7 @@ export function handleLoaderError(error: any): Response {
  */
 export async function prefetchData<T>(
   endpoint: string,
-  params?: Record<string, string>
+  params?: Record<string, string>,
 ): Promise<T | null> {
   try {
     let finalEndpoint = endpoint;
@@ -274,11 +273,11 @@ export async function prefetchData<T>(
         finalEndpoint = finalEndpoint.replace(`:${key}`, value);
       });
     }
-    
+
     const response = await apiClient.get<T>(finalEndpoint);
     return response.data;
   } catch (error) {
-    console.error('Prefetch error:', error);
+    console.error("Prefetch error:", error);
     return null;
   }
 }
@@ -289,8 +288,8 @@ export async function prefetchData<T>(
 export function invalidateCache(patterns: string[]): void {
   // This would integrate with your caching strategy
   // For now, we'll just log the invalidation
-  console.log('Invalidating cache for patterns:', patterns);
-  
+  console.log("Invalidating cache for patterns:", patterns);
+
   // In a real implementation, you might:
   // - Clear React Query cache
   // - Clear SWR cache

@@ -71,6 +71,23 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <div className="p-4 border-t border-green-500/20">
             <div className="flex items-center justify-center space-x-4">
               <a
+                href="https://twitter.com/memed"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-gray-400 hover:text-green-500 transition-colors"
+                aria-label="Twitter"
+              >
+                <svg
+                  className="w-5 h-5 fill-current"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>X</title>
+                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                </svg>
+              </a>
+              <a
                 href="https://t.me/memed"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -78,15 +95,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 aria-label="Telegram"
               >
                 <MessageCircle size={24} />
-              </a>
-              <a
-                href="https://twitter.com/memed"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-gray-400 hover:text-green-500 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={24} />
               </a>
             </div>
           </div>

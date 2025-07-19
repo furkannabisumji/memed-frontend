@@ -12,5 +12,8 @@ export default [
     route("insights", "routes/app/insights.tsx"),
     route("settings", "routes/app/settings.tsx"),
     route("launch", "routes/app/launch.tsx"),
+
+    //dynamic routes with loaders
+    route("meme/:memeId", "routes/app/meme.tsx"),
   ]),
 ] satisfies RouteConfig;
