@@ -1,8 +1,7 @@
-import { Link } from 'react-router';
-import { Menu, X } from 'lucide-react';
-import { ClientConnectButton } from '../shared/ClientConnectButton';
-import logo from "@/assets/images/logo.png"
-
+import { Link } from "react-router";
+import { Menu, X } from "lucide-react";
+import { ClientConnectButton } from "../shared/ClientConnectButton";
+import logo from "@/assets/images/logo.png";
 
 interface HeaderProps {
   onMenuToggle: () => void;
@@ -11,10 +10,10 @@ interface HeaderProps {
 
 export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
   const navItems = [
-    { label: 'About', href: '/about' },
-    { label: 'Explore', href: '/explore' },
-    { label: 'Contact', href: '/contact' },
-    { label: 'Launch App', href: '/app' },
+    { label: "About", href: "/about" },
+    { label: "Explore", href: "/app/explore" },
+    { label: "Contact", href: "/contact" },
+    { label: "Launch App", href: "/app" },
   ];
 
   return (
@@ -22,22 +21,19 @@ export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center justify-between  w-full md:w-auto">
-
             <Link to="/" className="flex items-center space-x-2 ml-2 md:ml-0">
-
               <img
-                  src={logo}
-                  alt={"Memed.fun"}
-                  className="w-[35px] object-cover"
+                src={logo}
+                alt={"Memed.fun"}
+                className="w-[35px] object-cover"
               />
               <span className="text-white font-bold text-lg">Memed</span>
             </Link>
 
-
             <button
-                onClick={onMenuToggle}
-                className="md:hidden p-2 text-green-500 hover:text-green-400 transition-colors"
-                aria-label="Toggle menu"
+              onClick={onMenuToggle}
+              className="md:hidden p-2 text-green-500 hover:text-green-400 transition-colors"
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
