@@ -12,6 +12,7 @@ export default [
     route("insights", "routes/app/insights.tsx"),
     route("settings", "routes/app/settings.tsx"),
     route("launch", "routes/app/launch.tsx"),
+    route("explore/search", "routes/app/search.tsx"),
 
     //dynamic routes with loaders
     route("explore/meme/:memeId", "routes/app/meme.tsx"),
