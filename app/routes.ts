@@ -14,6 +14,6 @@ export default [
     route("launch", "routes/app/launch.tsx"),
 
     //dynamic routes with loaders
-    route("meme/:memeId", "routes/app/meme.tsx"),
+    route("explore/meme/:memeId", "routes/app/meme.tsx"),
   ]),
 ] satisfies RouteConfig;
