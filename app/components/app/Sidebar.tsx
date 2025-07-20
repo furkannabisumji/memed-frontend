@@ -74,7 +74,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       <aside
         className={`
         fixed lg:relative
-        w-64  lg:w-[18%] bg-black border-r border-gray-800 h-full 
+        w-64  lg:w-[18%] bg-black border-r border-neutral-800 h-full 
         flex flex-col
         transform transition-transform duration-300 ease-in-out
         z-50
@@ -127,7 +127,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             </ul>
           </div>
 
-          <div className="px-4 mt-8 pt-8 border-t border-gray-800">
+          <div className="px-4 mt-8 pt-8 border-t border-neutral-800">
             <NavLink
               to="/app/terms"
               className="flex items-center gap-3 px-3 py-2.5 text-gray-400 hover:text-white hover:bg-gradient-to-t from-primary-900 to-black hover:border-t hover:border-b border-primary-900  hover:shadow-[inset_0_0_20px_rgba(34,197,94,0.2),inset_0_0_40px_rgba(0,0,0,0.3)]  duration-300  rounded-lg transition-colors"

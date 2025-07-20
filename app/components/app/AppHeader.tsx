@@ -45,7 +45,7 @@ export function AppHeader({ onMenuToggle }: AppHeaderProps) {
             <input
               type="search"
               placeholder="Search"
-              className="bg-[#1a1a1a] border border-neutral-700 rounded-lg h-11 px-4 py-2 pl-10 text-white placeholder-gray-500 focus:outline-none focus:border-gray-600 w-80 shadow-[inset_0_0_15px_rgba(0,0,0,0.3)]"
+              className="bg-[#1a1a1a] border border-neutral-700 rounded-lg h-11 px-4 py-2 pl-10 text-white placeholder-gray-500 focus:outline-none focus:border-neutral-500 w-80 shadow-[inset_0_0_15px_rgba(0,0,0,0.3)]"
             />
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
           </div>
