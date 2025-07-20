@@ -4,7 +4,7 @@ export default function TradeForm() {
   const [mode, setMode] = useState<"buy" | "sell">("buy");
 
   return (
-    <div className="w-full max-w-sm mx-auto rounded-xl bg-neutral-900 p-4 sm:p-6  text-white space-y-4">
+    <div className="w-full mx-auto rounded-xl bg-neutral-900 p-4 sm:p-6  text-white space-y-4">
       <h2 className="text-lg font-semibold">Trade MEME</h2>
 
       {/* Buy / Sell Toggle */}

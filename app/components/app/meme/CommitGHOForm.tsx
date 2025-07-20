@@ -2,7 +2,7 @@ import { CoinsIcon } from "lucide-react";
 
 const CommitGHOForm = () => {
   return (
-    <div className="bg-neutral-900 p-6 rounded-xl">
+    <div className="bg-neutral-900 p-6 rounded-xl w-full">
       <h2 className="text-white text-lg font-semibold mb-4 flex gap-2 items-center">
         <CoinsIcon className=" text-green-500" /> Commit GHO
       </h2>
