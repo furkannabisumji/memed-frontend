@@ -41,8 +41,8 @@ export default function ConnectProfile({
 
   if (isLoadingTokenData) {
     return (
-      <div className="p-8 border-2 border-black flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-dashed rounded-full animate-spin border-black"></div>
+      <div className="p-8   flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-dashed rounded-full animate-spin border-neutral-500"></div>
       </div>
     );
   }
@@ -53,25 +53,16 @@ export default function ConnectProfile({
         Connect Your Lens Profile
       </h1>
       <p className="mb-8 text-lg text-gray-400">
-        To create a meme token, you&apos;ll need to connect your Lens profile.
+        To create a meme token, you&apos;ll need to connect your Lens Account.
         This will allow you to mint tokens and earn from engagement.{" "}
-        <strong>NOTE:</strong> each lens profile can only have one meme token.
+        <strong>NOTE:</strong> each lens account can only have one meme token.
       </p>
-
-      <div className="flex items-center p-6 mb-8 bg-primary-900 border border-neutral-700">
-        <div>
-          <h3 className="mb-1 text-xl font-bold text-white">Lens Protocol</h3>
-          <p className="text-gray-400">
-            The social layer for Web3. Connect once, use everywhere.
-          </p>
-        </div>
-      </div>
 
       <div className="flex flex-col justify-center md:justify-between gap-4 md:flex-row">
         <Link to="/accounts">
-          <button className="px-4 py-2  hover:shadow-2xl rounded-md cursor-pointer shadow-none flex gap-2  text-black bg-green-500 hover:bg-primary-700">
+          <button className="px-4 py-2  hover:shadow-2xl rounded-md cursor-pointer shadow-none flex gap-2  text-black bg-green-500 hover:bg-green-700">
             <LinkIcon />
-            Connect Lens Profile
+            Connect Lens Account
           </button>
         </Link>
 

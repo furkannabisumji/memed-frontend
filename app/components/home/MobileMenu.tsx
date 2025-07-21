@@ -10,10 +10,10 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const navItems = [
-    { label: "About", href: "/about" },
-    { label: "Explore", href: "/app/explore" },
-    { label: "Contact", href: "/contact" },
     { label: "Launch App", href: "/app" },
+    { label: "About", href: "/about" },
+    // { label: "Explore", href: "/app/explore" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (

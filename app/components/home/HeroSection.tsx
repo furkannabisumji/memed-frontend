@@ -13,15 +13,12 @@ export function HeroSection() {
 
       <div className="relative z-10 text-center max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-6xl lg:text-7xl  text-white mb-6 leading-tight">
-          The Lens-powered meme
-          <br />
-          token revolution.
+          The meme token economy starts here.
         </h1>
 
         <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-          Earn, stake, and battle memes on the first social-token economy built
-          entirely on Lens engagement. Memed.fun lets your memes go viral — and
-          valuable.
+          Create, share, and battle memes in a social world where engagement has
+          real value. Memed.fun lets your memes go viral — and valuable.
         </p>
 
         <Link

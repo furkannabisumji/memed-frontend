@@ -11,7 +11,7 @@ interface HeaderProps {
 export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
   const navItems = [
     { label: "About", href: "/about" },
-    { label: "Explore", href: "/app/explore" },
+    // { label: "Explore", href: "/app/explore" },
     { label: "Contact", href: "/contact" },
     { label: "Launch App", href: "/app" },
   ];

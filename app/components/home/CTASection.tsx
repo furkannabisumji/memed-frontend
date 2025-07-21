@@ -21,7 +21,7 @@ export function CTASection() {
 
           <p className="text-lg text-gray-400 mb-8">
             Join the Web3 meme economy where every like, mirror, and quote earns
-            you tokens. Stake, battle, and go viral — all on-chain.
+            you meme tokens. Stake, battle, and go viral — all on-chain.
           </p>
 
           <Link

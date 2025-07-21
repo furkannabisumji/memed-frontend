@@ -90,7 +90,7 @@ export default function LaunchPage() {
           signature,
           timestamp,
         },
-        `Simulating API call to mintMemeCoins/${handle}`,
+        `Simulating API call to mintMemeCoins/${handle}`
       );
 
       // Simulate API call
@@ -107,7 +107,7 @@ export default function LaunchPage() {
       toast.error(
         error instanceof Error
           ? error.message
-          : "Failed to mint meme coins. Please try again.",
+          : "Failed to mint meme coins. Please try again."
       );
     } finally {
       setIsMinting(false);
@@ -130,14 +130,16 @@ export default function LaunchPage() {
               <h1 className="mb-6 text-5xl font-black ">Meme Created!</h1>
               <p className="mb-8 text-xl text-neutral-600">
                 Your meme has been successfully tokenized and is now live on the
-                blockchain.
+                Lens chain.
               </p>
 
               <div className="p-8 mb-8 bg-neutral-900 ">
                 <div className="relative w-64 h-64 mx-auto mb-6">
                   {memeImage && (
                     <img
-                      src={`${import.meta.env.VITE_LIGHTHOUSE_GATEWAY}${memeImage}`}
+                      src={`${
+                        import.meta.env.VITE_LIGHTHOUSE_GATEWAY
+                      }${memeImage}`}
                       alt="Your meme"
                       className="object-contain w-full h-full"
                     />
