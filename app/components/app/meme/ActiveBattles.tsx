@@ -11,9 +11,6 @@ const cards = [
     rightLabel: "Meme 2",
     leftViews: "3.1M",
     rightViews: "2.9M",
-    timeLeft: "23 h 12 min 2 s",
-    progress: 80,
-    isLeftLeading: true,
   },
   {
     leftImage: meme2,
@@ -22,9 +19,6 @@ const cards = [
     rightLabel: "Meme 4",
     leftViews: "1.2M",
     rightViews: "4.5M",
-    timeLeft: "12 h 30 min 45 s",
-    progress: 20,
-    isLeftLeading: false,
   },
 ];
 
@@ -46,9 +40,6 @@ const ActiveBattles = () => {
             rightLabel={card.rightLabel}
             leftViews={card.leftViews}
             rightViews={card.rightViews}
-            timeLeft={card.timeLeft}
-            progress={card.progress}
-            isLeftLeading={card.isLeftLeading}
           />
         ))}
       </div>

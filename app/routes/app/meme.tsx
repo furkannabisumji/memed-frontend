@@ -62,11 +62,6 @@ export default function Meme() {
             </div>
           )}
         </div>
-
-        {/* Meme Tokens Grid (placeholder, if any) */}
-        <div className="grid grid-cols-1 xl:grid-cols-4 gap-2 sm:gap-4 xl:gap-2">
-          {/* Token cards will go here */}
-        </div>
       </div>
     </div>
   );

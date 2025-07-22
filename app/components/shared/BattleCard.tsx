@@ -1,6 +1,4 @@
-import { ClockIcon, FlameIcon } from "lucide-react";
-import meme1 from "@/assets/images/meme1.webp";
-import meme2 from "@/assets/images/meme2.jpg";
+import { FlameIcon } from "lucide-react";
 
 interface BattleCardProps {
   leftImage: string;
@@ -9,9 +7,6 @@ interface BattleCardProps {
   rightLabel: string;
   leftViews: string;
   rightViews: string;
-  timeLeft: string;
-  progress: number; // 0 to 100
-  isLeftLeading: boolean;
 }
 
 export const BattleCard = ({
@@ -21,9 +16,6 @@ export const BattleCard = ({
   rightLabel,
   leftViews,
   rightViews,
-  timeLeft,
-  progress,
-  isLeftLeading,
 }: BattleCardProps) => {
   return (
     <div className="flex flex-col  gap-4 bg-neutral-800 pb-2 ">
@@ -83,11 +75,6 @@ export const BattleCard = ({
             style={{ width: "80%" }}
           />
         </div>
-      </div>
-      {/* Time Left */}
-      <div className="absolute bottom-2 right-4 flex items-center gap-1 text-xs text-neutral-400 pointer-events-none">
-        <ClockIcon className="w-4 h-4" />
-        <span>{timeLeft}</span>
       </div>
     </div>
   );
