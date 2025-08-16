@@ -1,13 +1,13 @@
-import { Swords, Zap, Percent, Droplets } from 'lucide-react';
+import { Swords, Zap, Percent, Droplets } from "lucide-react";
 
 const battleSystemData = {
-  title: '6. Battle System Mechanics',
+  title: "6. Battle System Mechanics",
   points: [
-    'Creators are required to stake 10M meme tokens to initiate a battle.',
-    'Users can allocate their tokens into the battle. If they lose, their tokens are automatically swapped into the winning meme token by Uniswap.',
-    'Battle outcome is calculated as 60% Lens engagement (Heat Score) + 40% allocated value.',
-    'Winner receives the equivalent value in their own meme token as staking reward, 15% is burned, and 5% goes to platform fees.',
-    'No central battle pool: all rewards are transferred directly with deflationary mechanics.',
+    "Creators are required to stake 10M meme tokens to initiate a battle.",
+    "Users can allocate their tokens into the battle. If they lose, their tokens are automatically swapped into the winning meme token by Uniswap.",
+    "Battle outcome is calculated as 60% Lens engagement (Heat Score) + 40% allocated value.",
+    "Winner receives the equivalent value in their own meme token as staking reward, 15% is burned, and 5% goes to platform fees.",
+    "No central battle pool: all rewards are transferred directly with deflationary mechanics.",
   ],
 };
 
@@ -16,7 +16,9 @@ export function BattleSystemSection() {
     <section className="py-12 md:py-20 bg-gray-900/50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8">{battleSystemData.title}</h2>
+          <h2 className="text-3xl font-bold text-white mb-8">
+            {battleSystemData.title}
+          </h2>
           <div className="space-y-6">
             <div className="bg-gray-800/60 p-6 rounded-lg border border-green-500/20">
               <ul className="space-y-4">

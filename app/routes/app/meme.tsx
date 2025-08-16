@@ -10,7 +10,8 @@ import StakeForm from "@/components/app/meme/StakeForm";
 import UnstakeForm from "@/components/app/meme/UnstakeForm";
 import BattleHistory from "@/components/app/meme/BattleHistory";
 import ActiveBattles from "@/components/app/meme/ActiveBattles";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Sword } from "lucide-react";
+import { useParams, Link } from "react-router";
 
 // export const loader = tokenDetailLoader;
 
@@ -18,6 +19,7 @@ export default function Meme() {
   // const { token, bondingCurve, analytics, battles } = useLoaderData() as any;
   // console.log(token);
   const navigate = useNavigate();
+  const { memeId } = useParams();
   const [active, setActive] = useState<boolean>(true);
   return (
     <div className="min-h-screen w-full">
@@ -38,6 +40,15 @@ export default function Meme() {
           {/* Left Section: Social Stats + Launch Progress */}
           <div className="flex-1 min-w-0 space-y-4 sm:space-y-6">
             <SocialMediaStats />
+
+            {/* Mint Warriors Button */}
+            <Link
+              to={`/app/explore/meme/${memeId}/mint`}
+              className="bg-green-600 hover:bg-green-700 text-black font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <Sword className="w-5 h-5" />
+              Mint Pepe's Revenge Warriors
+            </Link>
             {!active ? (
               <LaunchProgress />
             ) : (

@@ -1,7 +1,19 @@
 const teamMembers = [
-  { name: 'Furkan Nabi Sumji', role: 'Lead & Backend Architect', avatar: '/avatars/placeholder-1.png' },
-  { name: 'Apurva Borhade', role: 'Head of Design & Frontend', avatar: '/avatars/placeholder-2.png' },
-  { name: 'Chukwunonso Ikeji', role: 'Frontend Lead & Project Strategist', avatar: '/avatars/placeholder-3.png' },
+  {
+    name: "Furkan Nabi Sumji",
+    role: "Lead & Backend Architect",
+    avatar: "/avatars/placeholder-1.png",
+  },
+  {
+    name: "Apurva Borhade",
+    role: "Head of Design & Frontend",
+    avatar: "/avatars/placeholder-2.png",
+  },
+  {
+    name: "Chukwunonso Ikeji",
+    role: "Frontend Lead & Project Strategist",
+    avatar: "/avatars/placeholder-3.png",
+  },
 ];
 
 export function TeamSection() {
@@ -17,7 +29,9 @@ export function TeamSection() {
                   {/* Placeholder for avatar image */}
                   {/* <img src={member.avatar} alt={member.name} className="w-full h-full rounded-full object-cover" /> */}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  {member.name}
+                </h3>
                 <p className="text-green-400">{member.role}</p>
               </div>
             ))}

@@ -90,7 +90,7 @@ export default function LaunchPage() {
           signature,
           timestamp,
         },
-        `Simulating API call to mintMemeCoins/${handle}`
+        `Simulating API call to mintMemeCoins/${handle}`,
       );
 
       // Simulate API call
@@ -107,7 +107,7 @@ export default function LaunchPage() {
       toast.error(
         error instanceof Error
           ? error.message
-          : "Failed to mint meme coins. Please try again."
+          : "Failed to mint meme coins. Please try again.",
       );
     } finally {
       setIsMinting(false);

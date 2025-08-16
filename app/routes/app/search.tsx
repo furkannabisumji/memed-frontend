@@ -68,7 +68,7 @@ export default function SearchResultsPage() {
 
   const filteredTokens = query
     ? allMemeTokens.filter((token) =>
-        token.name.toLowerCase().includes(query.toLowerCase())
+        token.name.toLowerCase().includes(query.toLowerCase()),
       )
     : allMemeTokens;
 

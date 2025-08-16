@@ -88,7 +88,7 @@ export default function BattleSearchList() {
   }));
 
   const filteredMemes = memes.filter((meme) =>
-    meme.name.toLowerCase().includes(searchTerm.toLowerCase())
+    meme.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
