@@ -12,6 +12,8 @@ import {
   User,
   Rocket,
   ArrowRight,
+  SwordIcon,
+  Shield,
 } from "lucide-react";
 import logo from "@/assets/images/logo.png";
 
