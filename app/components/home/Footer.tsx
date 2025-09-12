@@ -1,6 +1,11 @@
 import { Link } from "react-router";
-import { MessageCircle, Twitter } from "lucide-react";
 import logo from "@/assets/images/logo.png";
+import { CiFacebook } from "react-icons/ci";
+import { AiOutlineDiscord } from "react-icons/ai";
+import { LiaTelegramPlane } from "react-icons/lia";
+import { PiGithubLogo } from "react-icons/pi";
+import { PiInstagramLogo } from "react-icons/pi";
+import { FaXTwitter } from "react-icons/fa6";
 
 export function Footer() {
   const navigation = [
@@ -39,30 +44,58 @@ export function Footer() {
 
           <div className="flex justify-center md:justify-end items-center space-x-4">
             <a
-              href="https://t.me/memed"
+              href="https://t.me/memeddotfun"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-gray-400 hover:text-green-500 transition-colors"
               aria-label="Telegram"
             >
-              <MessageCircle size={24} />
+              <LiaTelegramPlane size={24} />
+            </a>{" "}
+            <a
+              href="https://github.com/memeddotfun"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-gray-400 hover:text-green-500 transition-colors"
+              aria-label="Github"
+            >
+              <PiGithubLogo size={24} />
+            </a>{" "}
+            <a
+              href="https://instagram.com/memeddotfun"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-gray-400 hover:text-green-500 transition-colors"
+              aria-label="Instagram"
+            >
+              <PiInstagramLogo size={24} />
+            </a>{" "}
+            <a
+              href="https://facebook.com/memeddotfun"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-gray-400 hover:text-green-500 transition-colors"
+              aria-label="Facebook"
+            >
+              <CiFacebook size={24} />
             </a>
             <a
-              href="https://twitter.com/memed"
+              href="https://x.com/memeddotfun"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-gray-400 hover:text-green-500 transition-colors"
               aria-label="Twitter"
             >
-              <svg
-                className="w-5 h-5 fill-current"
-                role="img"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>X</title>
-                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-              </svg>
+              <FaXTwitter size={22} />
+            </a>
+            <a
+              href="https://discord.gg/b9PfQwCsdG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-gray-400 hover:text-green-500 transition-colors"
+              aria-label="Telegram"
+            >
+              <AiOutlineDiscord size={26} />
             </a>
           </div>
         </div>

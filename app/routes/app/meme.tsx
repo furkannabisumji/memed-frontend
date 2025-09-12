@@ -68,8 +68,8 @@ export default function Meme() {
           {active && (
             <div className="w-full xl:w-[400px] flex flex-col space-y-4 sm:space-y-6">
               <TradeForm />
-              <StakeForm />
-              <UnstakeForm />
+              {/*<StakeForm />*/}
+              {/*<UnstakeForm />*/}
             </div>
           )}
         </div>

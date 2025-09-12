@@ -26,7 +26,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   {
     name: "Explore",
-    path: "/app/explore",
+    path: "/explore",
     icon: <House className="w-5 h-5" />,
   },
   // {
@@ -36,22 +36,22 @@ const navItems: NavItem[] = [
   // },
   {
     name: "Battles",
-    path: "/app/battles",
+    path: "/battles",
     icon: <Swords className="w-5 h-5" />,
   },
   {
     name: "Rewards",
-    path: "/app/rewards",
+    path: "/rewards",
     icon: <TrophyIcon className="w-5 h-5" />,
   },
   {
     name: "Insights",
-    path: "/app/insights",
+    path: "/insights",
     icon: <User className="w-5 h-5" />,
   },
   {
     name: "Settings",
-    path: "/app/settings",
+    path: "/settings",
     icon: <Settings className="w-5 h-5" />,
   },
 ];
@@ -95,7 +95,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 <span className="text-white text-xl font-semibold">Memed</span>
               </Link>
               <Link
-                to="/app/launch"
+                to="/launch"
                 className="bg-green-500 w-full cursor-pointer text-sm text-nowrap justify-between text-black px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-green-600 transition-all duration-300 shadow-[0_0_40px_rgba(34,197,94,0.8)] hover:shadow-[0_0_60px_rgba(34,197,94,1)]"
               >
                 <Rocket />
@@ -131,7 +131,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
           <div className="px-4 mt-8 pt-8 border-t border-neutral-800">
             <NavLink
-              to="/app/terms"
+              to="/terms"
               className="flex items-center gap-3 px-3 py-2.5 text-gray-400 hover:text-white hover:bg-gradient-to-t from-primary-900 to-black hover:border-t hover:border-b border-primary-900  hover:shadow-[inset_0_0_20px_rgba(34,197,94,0.2),inset_0_0_40px_rgba(0,0,0,0.3)]  duration-300  rounded-lg transition-colors"
             >
               <FileText className="w-5 h-5" />

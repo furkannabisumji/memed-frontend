@@ -12,13 +12,13 @@ export function JoinUsSection() {
         </p>
         <div className="flex justify-center gap-4">
           <a
-            href="/app"
+            href="/explore"
             className="inline-block px-8 py-4 text-lg font-semibold rounded-lg bg-green-500 text-black hover:bg-green-600 transition-transform transform hover:scale-105"
           >
             Launch App
           </a>
           <a
-            href="https://discord.gg/your-invite-code" // Replace with your actual Discord link
+            href="https://discord.gg/b9PfQwCsdG" // Replace with your actual Discord link
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-4 text-lg font-semibold rounded-lg bg-gray-700 text-white hover:bg-gray-600 transition-transform transform hover:scale-105"

@@ -25,7 +25,7 @@ export function CTASection() {
           </p>
 
           <Link
-            to="/app/launch"
+            to="/launch"
             className="inline-flex items-center px-8 py-4 bg-black text-white border border-green-700  rounded-full hover:bg-green-700 transition-colors group"
           >
             Launch App
