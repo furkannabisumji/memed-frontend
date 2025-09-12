@@ -83,7 +83,7 @@ const SearchWithDropdown = () => {
           </ul>
           <div className="px-4 py-3 bg-neutral-800/50">
             <Link
-              to={`/app/explore/search?q=${searchTerm}`}
+              to={`/explore/search?q=${searchTerm}`}
               className="text-green-500 hover:text-green-400 text-sm font-medium w-full block text-center"
               onClick={() => setDropdownOpen(false)}
             >

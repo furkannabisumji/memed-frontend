@@ -36,9 +36,7 @@ export default function MintPriceAndHeat() {
         <h2 className="text-xl font-semibold text-white">
           Community Heat Score
         </h2>
-        <div className="ml-auto text-xl font-bold text-white">
-          92,311
-        </div>
+        <div className="ml-auto text-xl font-bold text-white">92,311</div>
       </div>
 
       <div className="w-full bg-neutral-800 rounded-full h-3 mb-2">

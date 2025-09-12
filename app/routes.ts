@@ -6,7 +6,7 @@ export default [
   route("about", "routes/about.tsx"),
   route("contact", "routes/contact.tsx"),
   //Nested routes
-  route("app", "routes/app/app.tsx", [
+  route("", "routes/app/app.tsx", [
     route("explore", "routes/app/explore.tsx"),
     route("battles", "routes/app/battles.tsx"),
     route("rewards", "routes/app/rewards.tsx"),
