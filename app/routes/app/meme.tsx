@@ -43,8 +43,8 @@ export default function Meme() {
 
             {/* Mint Warriors Button */}
             <Link
-              to={`/app/explore/meme/${memeId}/mint`}
-              className="bg-green-600 hover:bg-green-700 text-black font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              to={`/explore/meme/${memeId}/mint`}
+              className="bg-green-500 hover:bg-green-700 text-black font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               <Sword className="w-5 h-5" />
               Mint Pepe's Revenge Warriors

@@ -19,7 +19,7 @@ interface MemeTokenCardProps {
 export function MemeTokenCard({ token }: MemeTokenCardProps) {
   return (
     <Link
-      to={`/app/explore/meme/${token.id}`}
+      to={`/explore/meme/${token.id}`}
       className="bg-neutral-900 rounded-xl p-2 sm:p-3 hover:bg-neutral-800 transition-colors cursor-pointer border border-neutral-800"
     >
       <div className="flex items-center gap-2 sm:gap-3">
